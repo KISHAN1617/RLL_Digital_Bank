@@ -1,14 +1,15 @@
 package in.Bank.TestSteps;
+import static org.testng.Assert.assertTrue;
+
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriverException;
 import org.testng.Assert;
+import org.testng.Reporter;
 
-import io.cucumber.java.After;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -50,43 +51,32 @@ public class stepdefination extends Driver {
     @Then("click Submit to VISA successfully.")
     public void click_submit_to_visa_successfully() throws IOException {
         l.enterSubmit();
-        String expectedErrMsg = "Verify VISA Transfer Submit successfully";
-        String actualErrmsg = k.verify2();
-        System.out.println(expectedErrMsg);
-        System.out.println(actualErrmsg);
+       // String expectedErrMsg = "Verify VISA Transfer Submit successfully";
+       // String actualErrmsg = k.verify2();
+       // System.out.println(expectedErrMsg);
+        //System.out.println(actualErrmsg);
         try {
-            Assert.assertEquals(expectedErrMsg, actualErrmsg);
-        } catch (AssertionError e) {
-            captureScreenshotAndFail(e);
-        }
-    }
+		    assertTrue(driver.getTitle().equals("Verify VISA Transfer Submit successfully"));
+		    logger.info("User Sees welcome message");
+		} catch (AssertionError e) {
+		    String screenshotPath = takeScreenshot();
+		    Reporter.log( screenshotPath);
+		    throw e;
+		}
 
-    @After
-    public void afterScenario() {
-        if (driver != null) {
-            driver.quit();
-        }
-    }
+	}
 
-    private void captureScreenshotAndFail(AssertionError e) throws IOException {
-        try {
-            byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+	// Add a method to capture a screenshot
+	public String takeScreenshot() throws IOException {
+		TakesScreenshot ts = (TakesScreenshot) driver;
+		File source = ts.getScreenshotAs(OutputType.FILE);
 
-            String screenshotPath = "C:\\Users\\User\\Desktop\\Myscreenshots"+System.currentTimeMillis()+".png";
-            
+		String path = "C:\\Users\\User\\Pictures\\Screenshots\\myscreenshot_" + System.currentTimeMillis() + ".png";
 
-            File screenshotFile = new File(screenshotPath + "/screenshot.png");
-            FileOutputStream outputStream = new FileOutputStream(screenshotFile);
-            outputStream.write(screenshot);
-            outputStream.close();
-            
-
-            System.out.println("Screenshot saved to: " + screenshotPath);
-            // Attach the screenshot to your report here (e.g., using your reporting library)
-            // You can also save the screenshot to a file for further analysis
-        } catch (WebDriverException ex) {
-            System.err.println("Failed to take screenshot: " + ex.getMessage());
-        }
-        Assert.fail(e.getMessage());
-    }
+		File target = new File(path);
+		FileUtils.copyFile(source, target);
+		String targetPath = target.getAbsolutePath();
+		return targetPath;
+	}
 }
+

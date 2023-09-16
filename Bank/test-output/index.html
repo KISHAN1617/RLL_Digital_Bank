@@ -51,7 +51,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\User\AppData\Local\Temp\testng-eclipse--773043857\testng-customsuite.xml</span>
+                    <span>C:\Users\User\AppData\Local\Temp\testng-eclipse--688797593\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -131,14 +131,13 @@
                   </a> <!-- runScenario("A user must able to Direct payment to VISA", "Optional[clicks VISA Direct Transfer]") -->
                   <span class="method-name">runScenario</span>
                   <span class="parameters">("A user must able to Direct payment to VISA", "Optional[clicks VISA Direct Transfer]")</span>
-                  <div class="stack-trace">java.io.FileNotFoundException: C:\Users\User\Desktop\Myscreenshots1694778912501.png\screenshot.png (The system cannot find the path specified)
-	at java.base/java.io.FileOutputStream.open0(Native Method)
-	at java.base/java.io.FileOutputStream.open(FileOutputStream.java:293)
-	at java.base/java.io.FileOutputStream.&lt;init&gt;(FileOutputStream.java:235)
-	at java.base/java.io.FileOutputStream.&lt;init&gt;(FileOutputStream.java:184)
-	at in.Bank.TestSteps.stepdefination.captureScreenshotAndFail(stepdefination.java:79)
-	at in.Bank.TestSteps.stepdefination.click_submit_to_visa_successfully(stepdefination.java:60)
-	at ✽.click Submit to VISA successfully.(file:///C:/Users/User/eclipse-workspace/Bank/features/bank.feature:7)
+                  <div class="stack-trace">java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertTrue(Assert.java:45)
+	at org.testng.Assert.assertTrue(Assert.java:55)
+	at in.Bank.TestSteps.stepdefination.click_submit_to_visa_successfully(stepdefination.java:59)
+	at ✽.click Submit to VISA successfully.(file:///C:/Users/User/git/RLL_Digital_Bank/Bank/features/bank.feature:7)
 
 </div> <!-- stack-trace -->
                   <em>
@@ -150,7 +149,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\User\AppData\Local\Temp\testng-eclipse--773043857\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\User\AppData\Local\Temp\testng-eclipse--688797593\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -211,7 +210,7 @@ data.addRows(1);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'runScenario')
 data.setCell(0, 2, 'in.Bank.TestSteps.TestRunner')
-data.setCell(0, 3, 20560);
+data.setCell(0, 3, 20905);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
@@ -227,6 +226,12 @@ return data;
             <span class="header-content">Reporter output for Default suite</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
+            <div class="reporter-method-div">
+              <span class="reporter-method-name">runScenario("A user must able to Direct payment to VISA", "Optional[clicks VISA Direct Transfer]")</span>
+              <div class="reporter-method-output-div">
+                <span class="reporter-method-output">C:\Users\User\Pictures\Screenshots\myscreenshot_1694843926527.png</span>
+              </div> <!-- reporter-method-output-div -->
+            </div> <!-- reporter-method-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Default_suite" class="panel">
@@ -244,18 +249,20 @@ return data;
             <div class="chronological-class">
               <div class="chronological-class-name">in.Bank.TestSteps.TestRunner</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
-                <span class="method-name">setUpClass(org.testng.TestRunner@73894c5a)</span>
+                <span class="method-name">setUpClass(org.testng.TestRunner@21a9a705)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
                 <span class="method-name">runScenario("A user must able to Direct payment to VISA", "Optional[clicks VISA Direct Transfer]")</span>
-                <span class="method-start">567 ms</span>
+                <span class="method-start">757 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
+                <img src="failed.png">
+                </img>
                 <span class="method-name">tearDownClass</span>
-                <span class="method-start">21132 ms</span>
+                <span class="method-start">21672 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

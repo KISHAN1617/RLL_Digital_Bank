@@ -6,7 +6,7 @@
 	</listeners>
   <test thread-count="5" name="Test">
 	   <classes>
-		   <class name="in.Bank.TestSteps.stepdefination"></class>
+		    <class name="in.Bank.TestSteps.TestRunner"></class>
 	   </classes>
-  </> <!-- Test -->
+  </test> <!-- Test -->
 </suite> <!-- Suite -->
